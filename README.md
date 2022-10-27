@@ -1,2 +1,3 @@
 # rdp-manipulations
-Tool for RDP (Remote Desktop Protocol) manipulations, automations and testing via Python and Apache Guacamole
+
+Tool for image-based control RDP (Remote Desktop Protocol). Manipulations, automations and testing via Python and Apache Guacamole
