@@ -17,6 +17,7 @@ loguru = "^0.6.0"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^0.982"
+autopep8 = "^1.7.0"
 
 [build-system]
 requires = ["poetry-core"]
