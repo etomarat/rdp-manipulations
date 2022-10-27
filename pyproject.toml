@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "rdp-manipulations"
+version = "0.1.0"
+description = "Tool for RDP (Remote Desktop Protocol) manipulations, automations and testing via Python and Apache Guacamole"
+authors = ["Marat Azizov <etomarat@gmail.com>"]
+license = "Apache License 2.0"
+readme = "README.md"
+packages = [{include = "rdp_manipulations"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+playwright = "^1.27.1"
+numpy = "^1.23.4"
+opencv-python-headless = "^4.6.0.66"
+environs = "^9.5.0"
+loguru = "^0.6.0"
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^0.982"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
