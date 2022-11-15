@@ -72,3 +72,9 @@ def image_locate_center(to_locate_path: str, where_locate_path: str, threshold: 
 
 def is_image_contain(to_locate_path: str, where_locate_path: str, threshold: float = 0.8) -> bool:
     return image_locate(to_locate_path, where_locate_path, threshold) is not None
+
+
+# print(is_image_identic('./image_asserts/prelogin.png', './image_logs/prelogin.png', threshold=0.9))
+# print(image_locate('./image_asserts/run_window.png', './image_logs/screenshot_18.png', threshold=0.0))
+# print(image_locate('./image_asserts/run_window.png', './image_logs/after_login.png', threshold=0.0))
+# print(image_locate('./image_asserts/start_btn.png', './image_logs/screenshot_18.png', threshold=0.0))
