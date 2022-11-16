@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rdp-manipulations"
-version = "0.3.3"
+version = "0.3.4"
 description = "Image based tool for RDP (Remote Desktop Protocol) manipulations, automations and testing via Python and Apache Guacamole"
 authors = ["Marat Azizov <etomarat@gmail.com>"]
 repository = "https://github.com/etomarat/rdp-manipulations"
