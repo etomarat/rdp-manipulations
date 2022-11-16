@@ -2,6 +2,12 @@
 
 Tool for image-based control RDP (Remote Desktop Protocol). Manipulations, automations and testing via Python and Apache Guacamole
 
+## Demo
+
+https://user-images.githubusercontent.com/710389/202258413-5c867a64-06d7-4cb5-8034-08523b114db4.mp4
+
+
+
 ## Prerequisites
 
 Installed and configured [Apache Guacamole](https://guacamole.apache.org/). I used this guacamole docker project: https://github.com/boschkundendienst/guacamole-docker-compose
