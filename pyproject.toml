@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rdp-manipulations"
-version = "0.2.0"
+version = "0.3.0"
 description = "Tool for RDP (Remote Desktop Protocol) manipulations, automations and testing via Python and Apache Guacamole"
 authors = ["Marat Azizov <etomarat@gmail.com>"]
 license = "Apache License 2.0"

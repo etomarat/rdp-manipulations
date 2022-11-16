@@ -1,4 +1,4 @@
-from rdp_manipulations.main import RDP
+from rdp_manipulations import RDP
 from datetime import date
 
 connection = RDP(headless=True, width=800, height=600)
