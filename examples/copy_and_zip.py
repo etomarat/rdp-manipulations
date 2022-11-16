@@ -1,7 +1,7 @@
 from rdp_manipulations import RDP
 from datetime import date
 
-connection = RDP(headless=True, width=800, height=600)
+connection = RDP(headless=False, width=800, height=600)
 connection.login(guacamole_url='http://localhost:8080/guacamole/#/', guacamole_user='guacadmin',
                  guacamole_password='guacadmin', guacamole_pc_name='win7en')
 

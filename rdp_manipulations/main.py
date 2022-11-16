@@ -290,7 +290,7 @@ class RDP:
             return result
         return None
 
-    def mouse_click_to(self, assertion: str, button: Literal['left', 'middle', 'right'] = 'left') -> None:
+    def mouse_click_to(self, assertion: str, button: Literal['left', 'middle', 'right'] = 'left') -> Optional[tuple[float, float]]:
         """Mouse click on remote PC by giving image assertion path"""
         result = self.mouse_move_to(assertion)
         if result:
@@ -299,6 +299,7 @@ class RDP:
             self.page.mouse.up(button=button)
             self.delay()
             logger.debug('Mouse {button} clicked')
+        return result
 
     def current_lang(self) -> Optional[str]:
         """Get a current keuboard language (now support only 'en' and 'ru')"""

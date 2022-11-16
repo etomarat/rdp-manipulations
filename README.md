@@ -282,7 +282,7 @@ Mouse move on remote PC by giving image assertion path
 ```python
 def mouse_click_to(
         assertion: str,
-        button: Literal['left', 'middle', 'right'] = 'left') -> None
+        button: Literal['left', 'middle', 'right'] = 'left') -> Optional[tuple[float, float]]
 ```
 
 Mouse click on remote PC by giving image assertion path
