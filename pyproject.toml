@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "rdp-manipulations"
-version = "0.1.0"
+version = "0.2.0"
 description = "Tool for RDP (Remote Desktop Protocol) manipulations, automations and testing via Python and Apache Guacamole"
 authors = ["Marat Azizov <etomarat@gmail.com>"]
 license = "Apache License 2.0"
@@ -18,6 +18,8 @@ loguru = "^0.6.0"
 [tool.poetry.group.dev.dependencies]
 mypy = "^0.982"
 autopep8 = "^1.7.0"
+novella = "^0.2.3"
+pydoc-markdown = "^4.6.4"
 
 [build-system]
 requires = ["poetry-core"]

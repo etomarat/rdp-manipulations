@@ -76,5 +76,5 @@ def is_image_contain(to_locate_path: str, where_locate_path: str, threshold: flo
 
 # print(is_image_identic('./image_asserts/prelogin.png', './image_logs/prelogin.png', threshold=0.9))
 # print(image_locate('./image_asserts/run_window.png', './image_logs/screenshot_18.png', threshold=0.0))
-# print(image_locate('./image_asserts/run_window.png', './image_logs/after_login.png', threshold=0.0))
+# print(image_locate('./image_asserts/run_window.png', './image_logs/cmd_str.png', threshold=0.5))
 # print(image_locate('./image_asserts/start_btn.png', './image_logs/screenshot_18.png', threshold=0.0))
