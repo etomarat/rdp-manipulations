@@ -1,0 +1,1 @@
+pydoc-markdown -I rdp_manipulations -m main --render-toc > docs.md
