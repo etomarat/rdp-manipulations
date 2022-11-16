@@ -16,4 +16,5 @@ connection.key_press("ContextMenu")
 if connection.mouse_move_to('./examples/asserts/send_to.png') and connection.mouse_click_to('./examples/asserts/zip.png'):
     today_date = str(date.today())
     connection.key_type(f'{today_date}.zip')
+    connection.key_press("Enter")
     connection.make_screenshot(path='./examples/copy_and_zip_done.png')
