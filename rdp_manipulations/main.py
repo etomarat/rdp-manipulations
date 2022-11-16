@@ -22,7 +22,6 @@ CMD_DICT = {
 ASSERT_DICT = {
     'prelogin': str(Path(IMAGE_ASSERTS_DIR, 'prelogin.png')),
     'login': str(Path(IMAGE_ASSERTS_DIR, 'login.png')),
-    'post_login': str(Path(IMAGE_ASSERTS_DIR, 'post_login.png')),
     'start_btn': str(Path(IMAGE_ASSERTS_DIR, 'start_btn.png')),
     'start_btn_selected': str(Path(IMAGE_ASSERTS_DIR, 'start_btn_selected.png')),
     'run_window': str(Path(IMAGE_ASSERTS_DIR, 'run_window.png')),
@@ -36,7 +35,6 @@ ASSERT_DICT = {
 {
     'prelogin': './image_asserts/prelogin.png',
     'login': './image_asserts/login.png',
-    'post_login': './image_asserts/post_login.png',
     'start_btn': './image_asserts/start_btn.png',
     'start_btn_selected': './image_asserts/start_btn_selected.png',
     'run_window': './image_asserts/run_window.png',
@@ -130,7 +128,9 @@ class RDP:
             if f.is_file():
                 f.unlink()
 
-    def __wait_until_screen_state(self, assertion: str, will_appear: bool = True, attempts: int = screen_state_attempts, threshold: float = image_threshold) -> bool:
+    def __wait_until_screen_state(
+            self, assertion: str, will_appear: bool = True, attempts: int = screen_state_attempts,
+            threshold: float = image_threshold) -> bool:
         if will_appear:
             msg = '💤 Waiting for "{}" is appear on screen. Attempts left: {}'
         else:
@@ -142,7 +142,8 @@ class RDP:
         result = self.is_on_screen(assertion, threshold=threshold)
         if result is not will_appear and attempts:
             self.delay(self.screen_state_delay)
-            return self.__wait_until_screen_state(assertion, will_appear=will_appear, attempts=attempts-1, threshold=threshold)
+            return self.__wait_until_screen_state(
+                assertion, will_appear=will_appear, attempts=attempts - 1, threshold=threshold)
         else:
             if result is not will_appear:
                 logger.critical(msg_text)
@@ -189,15 +190,19 @@ class RDP:
     def is_on_screen(self, assertion: str, threshold: float = image_threshold) -> bool:
         """Checking assertion image is on screen (assertion is a path to image)"""
         screenshot = self.make_screenshot()
-        return is_image_identic(assertion, screenshot, threshold=threshold) or is_image_contain(assertion, screenshot, threshold=threshold)
+        return is_image_identic(
+            assertion, screenshot, threshold=threshold) or is_image_contain(
+            assertion, screenshot, threshold=threshold)
 
-    def wait_until_appear(self, assertion: str, attempts: int = screen_state_attempts, threshold: float = image_threshold) -> None:
+    def wait_until_appear(
+            self, assertion: str, attempts: int = screen_state_attempts, threshold: float = image_threshold) -> None:
         """Waiting until assertion image is appear on screen (assertion is a path to image)"""
         self.delay()
         self.__wait_until_screen_state(assertion, will_appear=True, attempts=attempts, threshold=threshold)
         self.delay()
 
-    def wait_until_desappear(self, assertion: str, attempts: int = screen_state_attempts, threshold: float = image_threshold) -> None:
+    def wait_until_desappear(
+            self, assertion: str, attempts: int = screen_state_attempts, threshold: float = image_threshold) -> None:
         """Waiting until assertion image is desappear on screen (assertion is a path to image)"""
         self.delay()
         self.__wait_until_screen_state(assertion, will_appear=False, attempts=attempts, threshold=threshold)
