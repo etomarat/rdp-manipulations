@@ -3,7 +3,6 @@ import cv2  # type: ignore
 from rdp_manipulations.logger import logger
 
 from typing import Optional
-DatesType = dict[str, str]
 
 ImageLocatorType = Optional[dict[str, float]]
 ImageLocatorCenterType = Optional[tuple[float, float]]
@@ -24,16 +23,15 @@ def image_diff(image_path1: str, image_path2: str) -> float:
 
 
 def is_image_identic(to_locate_path: str, where_locate_path: str, threshold: float = 0.8) -> bool:
-    logger.debug(f'is_image_identic with threshold {threshold}')
+    logger.debug(f'called is_image_identic with threshold {threshold}')
     return image_diff(to_locate_path, where_locate_path) >= threshold
 
 
 def image_locate(to_locate_path: str, where_locate_path: str, threshold: float = 0.8) -> ImageLocatorType:
-    logger.debug(f'image_locate with threshold {threshold}')
+    logger.debug(f'called image_locate with threshold {threshold}')
     to_locate = cv2.imread(to_locate_path)
     where_locate = cv2.imread(where_locate_path)
-    matxh_result = cv2.matchTemplate(
-        where_locate, to_locate, cv2.TM_CCOEFF_NORMED)
+    matxh_result = cv2.matchTemplate(where_locate, to_locate, cv2.TM_CCOEFF_NORMED)
 
     # Magic ->
     match_indices = np.arange(matxh_result.size)[
@@ -72,9 +70,3 @@ def image_locate_center(to_locate_path: str, where_locate_path: str, threshold: 
 
 def is_image_contain(to_locate_path: str, where_locate_path: str, threshold: float = 0.8) -> bool:
     return image_locate(to_locate_path, where_locate_path, threshold) is not None
-
-
-# print(is_image_identic('./image_asserts/prelogin.png', './image_logs/prelogin.png', threshold=0.9))
-# print(image_locate('./image_asserts/run_window.png', './image_logs/screenshot_18.png', threshold=0.0))
-# print(image_locate('./image_asserts/run_window.png', './image_logs/cmd_str.png', threshold=0.5))
-# print(image_locate('./image_asserts/start_btn.png', './image_logs/screenshot_18.png', threshold=0.0))

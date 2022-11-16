@@ -1,11 +1,19 @@
 [tool.poetry]
 name = "rdp-manipulations"
-version = "0.3.0"
-description = "Tool for RDP (Remote Desktop Protocol) manipulations, automations and testing via Python and Apache Guacamole"
+version = "0.3.3"
+description = "Image based tool for RDP (Remote Desktop Protocol) manipulations, automations and testing via Python and Apache Guacamole"
 authors = ["Marat Azizov <etomarat@gmail.com>"]
+repository = "https://github.com/etomarat/rdp-manipulations"
+documentation = "https://github.com/etomarat/rdp-manipulations/blob/main/README.md"
 license = "Apache License 2.0"
+keywords = ["rdp", "guacamole", "automation", "image-based", "Remote Desktop Protocol"]
 readme = "README.md"
-packages = [{include = "rdp_manipulations"}]
+packages = [
+  {include = "rdp_manipulations"},
+  {include = "image_processing"},
+  {include = "image_asserts"},
+  {include = "image_logs"}
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"

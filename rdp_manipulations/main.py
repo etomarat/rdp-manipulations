@@ -6,6 +6,9 @@ from typing import Optional, Literal
 from rdp_manipulations.logger import logger
 from image_processing.main import is_image_contain, is_image_identic, image_locate_center
 
+BASE_DIR = Path(__file__).parent.resolve()
+IMAGE_ASSERTS_DIR = Path(BASE_DIR, '../image_asserts/')
+
 LANG_SWITCH_KEYS = 'Alt+Shift'
 
 CMD_DICT = {
@@ -17,16 +20,16 @@ CMD_DICT = {
 }
 
 ASSERT_DICT = {
-    'prelogin': './image_asserts/prelogin.png',
-    'login': './image_asserts/login.png',
-    'post_login': './image_asserts/post_login.png',
-    'start_btn': './image_asserts/start_btn.png',
-    'start_btn_selected': './image_asserts/start_btn_selected.png',
-    'run_window': './image_asserts/run_window.png',
-    'lang_ru': './image_asserts/lang_ru.png',
-    'lang_en': './image_asserts/lang_en.png',
-    'opened_folder': './image_asserts/opened_folder.png',
-    'files_copy': './image_asserts/files_copy.png',
+    'prelogin': str(Path(IMAGE_ASSERTS_DIR, 'prelogin.png')),
+    'login': str(Path(IMAGE_ASSERTS_DIR, 'login.png')),
+    'post_login': str(Path(IMAGE_ASSERTS_DIR, 'post_login.png')),
+    'start_btn': str(Path(IMAGE_ASSERTS_DIR, 'start_btn.png')),
+    'start_btn_selected': str(Path(IMAGE_ASSERTS_DIR, 'start_btn_selected.png')),
+    'run_window': str(Path(IMAGE_ASSERTS_DIR, 'run_window.png')),
+    'lang_ru': str(Path(IMAGE_ASSERTS_DIR, 'lang_ru.png')),
+    'lang_en': str(Path(IMAGE_ASSERTS_DIR, 'lang_en.png')),
+    'opened_folder': str(Path(IMAGE_ASSERTS_DIR, 'opened_folder.png')),
+    'files_copy': str(Path(IMAGE_ASSERTS_DIR, 'files_copy.png')),
 }
 """Pass it to instance of #RDP for unsupported OS (see below)
 ```
@@ -137,7 +140,6 @@ class RDP:
         logger.debug(msg_text)
 
         result = self.is_on_screen(assertion, threshold=threshold)
-        print('result', result)
         if result is not will_appear and attempts:
             self.delay(self.screen_state_delay)
             return self.__wait_until_screen_state(assertion, will_appear=will_appear, attempts=attempts-1, threshold=threshold)
